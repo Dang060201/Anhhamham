@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "type_traits": "c",
+        "ssd1306_i2c.h": "c",
+        "wiringpii2c.h": "c",
+        "wiringpi.h": "c",
+        "string.h": "c",
+        "oled_fonts.h": "c",
+        "errno.h": "c",
+        "userheader.h": "c",
+        "stdio.h": "c"
+    },
+    "makefile.buildLog": "/home/dangph/ProgrammingC/LearningC/Make_test/Makefile"
+}

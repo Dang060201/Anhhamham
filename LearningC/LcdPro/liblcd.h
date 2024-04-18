@@ -1,0 +1,13 @@
+int handle;
+void lcd_strobe(void);
+void lcd_write(unsigned char, int);
+void lcd_clear(void);
+void lcd_home(void);
+void lcd_cursor_blink_on(void);
+void lcd_cursor_blink_off(void);
+void lcd_cursor_on(void);
+void lcd_cursor_off(void);
+void lcd_puts(const char*);
+void lcd_putch(unsigned char);
+void lcd_goto(int, int);
+void lcd_init(void);
