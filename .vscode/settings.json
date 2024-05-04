@@ -8,7 +8,14 @@
         "oled_fonts.h": "c",
         "errno.h": "c",
         "userheader.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "random": "cpp",
+        "cstdio": "c",
+        "dht22lib.h": "c",
+        "mcp23x0817.h": "c",
+        "mqttclient.h": "c"
     },
-    "makefile.buildLog": "/home/dangph/ProgrammingC/LearningC/Make_test/Makefile"
+    "makefile.buildLog": "/home/dangph/ProgrammingC/LearningC/Make_test/Makefile",
+    "cmake.sourceDirectory": "/home/dangph/ProgrammingC/pigpio-master",
+    "C_Cpp.errorSquiggles": "disabled"
 }

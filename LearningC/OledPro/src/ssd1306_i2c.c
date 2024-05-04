@@ -803,3 +803,31 @@ void ssd1306_drawChar(int x, int y, unsigned char c, int color, int size)
 		}
 	}
 }
+void ssd1306_displaybitmap(unsigned char image_data_logoweb[SSD1306_LCDWIDTH * SSD1306_LCDHEIGHT / 8])
+{
+	ssd1306_command(SSD1306_COLUMNADDR);
+	ssd1306_command(0);	// Column start address (0 = reset)
+	ssd1306_command(SSD1306_LCDWIDTH - 1);	// Column end address (127 
+	// = reset)
+
+	ssd1306_command(SSD1306_PAGEADDR);
+	ssd1306_command(0);	// Page start address (0 = reset)
+#if SSD1306_LCDHEIGHT == 64
+	ssd1306_command(7);	// Page end address
+#endif
+#if SSD1306_LCDHEIGHT == 32
+	ssd1306_command(3);	// Page end address
+#endif
+#if SSD1306_LCDHEIGHT == 16
+	ssd1306_command(1);	// Page end address
+#endif
+
+	// I2C
+	int i;
+	for (i = 0; i < (SSD1306_LCDWIDTH * SSD1306_LCDHEIGHT / 8); i++) {
+		wiringPiI2CWriteReg8(i2cd, 0x40, image_data_logoweb[i]); 
+		//This sends byte by byte. 
+		//Better to send all buffer without 0x40 first
+		//Should be optimized
+	}
+}
