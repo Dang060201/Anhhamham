@@ -5,7 +5,7 @@
 CC            = g++
 CFLAGS        = -DRASPBERRY_PI -pthread
 LIBS          = -lpigpio -lrt
-RADIOHEADBASE = /home/dangph/ProgrammingC/LearningC/RadioHead
+RADIOHEADBASE = ../../../..
 INCLUDE       = -I$(RADIOHEADBASE)
 
 all: rf95_mesh_server1
@@ -46,10 +46,7 @@ RHGenericSPI.o: $(RADIOHEADBASE)/RHGenericSPI.cpp
 rf95_mesh_server1: rf95_mesh_server1.o RH_RF95.o RHMesh.o RHRouter.o RHReliableDatagram.o RHDatagram.o RasPi.o RHHardwareSPI.o RHSPIDriver.o RHGenericDriver.o RHGenericSPI.o
 	$(CC) $^ $(LIBS) -o rf95_mesh_server1
 
-.PHONY = clean
+
 clean:
 	rm -rf *.o rf95_mesh_server1
 
-.PHONY = run
-run: 
-	sudo ./rf95_mesh_server1

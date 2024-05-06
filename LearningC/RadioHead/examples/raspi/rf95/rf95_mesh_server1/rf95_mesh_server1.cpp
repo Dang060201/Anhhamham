@@ -31,7 +31,7 @@
 #include <RHMesh.h>
 #include <RH_RF95.h>
 
-// #define RH_MESH_MAX_MESSAGE_LEN 50
+#define RH_MESH_MAX_MESSAGE_LEN 50
 
 //Function Definitions
 void sig_handler(int sig);
@@ -42,7 +42,7 @@ void sig_handler(int sig);
 #define RFM95_LED 4
 
 // In this small artifical network of 4 nodes,
-#define CLIENT_ADDRESS 11
+#define CLIENT_ADDRESS 1
 #define SERVER1_ADDRESS 2
 #define SERVER2_ADDRESS 3
 #define SERVER3_ADDRESS 4

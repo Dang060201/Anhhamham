@@ -4,7 +4,7 @@
 // $Id: RHSPIDriver.cpp,v 1.13 2020/08/04 09:02:14 mikem Exp $
 
 #include <RHSPIDriver.h>
-
+#include <RasPi.h>
 RHSPIDriver::RHSPIDriver(uint8_t slaveSelectPin, RHGenericSPI& spi)
     : 
     _spi(spi),
@@ -28,7 +28,7 @@ bool RHSPIDriver::init()
 
     // Sometimes we dont want to work the _slaveSelectPin here
     if (_slaveSelectPin != 0xff)
-	gpioSetMode(_slaveSelectPin, PI_OUTPUT);
+	pinMode(_slaveSelectPin, OUTPUT);
 
     deselectSlave();
 
@@ -122,10 +122,10 @@ void  RHSPIDriver::endTransaction()
 // Some platforms (ABZ) need to override just selectSlave and deselectSlave
 void RHSPIDriver::selectSlave()
 {
-    gpioWrite(_slaveSelectPin, PI_OFF);
+    digitalWrite(_slaveSelectPin, LOW);
 }
     
 void RHSPIDriver::deselectSlave()
 {
-    gpioWrite(_slaveSelectPin, PI_ON);
+    digitalWrite(_slaveSelectPin, HIGH);
 }

@@ -44,12 +44,12 @@ void sig_handler(int sig);
 // In this small artifical network of 4 nodes,
 #define CLIENT_ADDRESS 253
 #define SERVER1_ADDRESS 2
-#define SERVER2_ADDRESS 3
-#define SERVER3_ADDRESS 11
+#define SERVER2_ADDRESS 11
+#define SERVER3_ADDRESS 4
 
 //RFM95 Configuration
-#define RFM95_FREQUENCY  434.80
-#define RFM95_TXPOWER 22
+#define RFM95_FREQUENCY  915.00
+#define RFM95_TXPOWER 14
 
 // Singleton instance of the radio driver
 RH_RF95 rf95(RFM95_CS_PIN, RFM95_IRQ_PIN);
@@ -120,7 +120,7 @@ int main (int argc, const char* argv[] )
       // Now wait for a reply from the ultimate server
       uint8_t len = sizeof(buf);
       uint8_t from;
-      if (manager.recvfromAckTimeout(buf, &len, 4000, &from))
+      if (manager.recvfromAckTimeout(buf, &len, 3000, &from))
       {
         Serial.print("got reply from : 0x");
         Serial.print(from, HEX);
@@ -137,7 +137,7 @@ int main (int argc, const char* argv[] )
 #ifdef RFM95_LED
     gpioWrite(RFM95_LED, PI_OFF);
 #endif
-    // gpioDelay(400000);
+    gpioDelay(400000);
   }
   printf( "\nrf95_mesh_client Tester Ending\n" );
   gpioTerminate();

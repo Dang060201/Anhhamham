@@ -8,7 +8,7 @@
 
 #include <RHGenericDriver.h>
 #include <RHHardwareSPI.h>
-#include <pigpio.h>
+
 // This is the bit in the SPI address that marks it as a write
 #define RH_SPI_WRITE_MASK 0x80
 
