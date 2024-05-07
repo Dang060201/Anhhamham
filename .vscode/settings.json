@@ -13,7 +13,9 @@
         "cstdio": "c",
         "dht22lib.h": "c",
         "mcp23x0817.h": "c",
-        "mqttclient.h": "c"
+        "mqttclient.h": "c",
+        "pthread.h": "c",
+        "byteswap.h": "c"
     },
     "makefile.buildLog": "/home/dangph/ProgrammingC/LearningC/Make_test/Makefile",
     "cmake.sourceDirectory": "/home/dangph/ProgrammingC/pigpio-master",

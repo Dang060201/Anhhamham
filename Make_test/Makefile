@@ -5,7 +5,7 @@ VPATH = src:build
 
 build/bin/make_tutorial : main.o calculator.o greeter.o
 		mkdir build/bin
-		$(CC) $(CFLAGS) $? -o $@  -lwiringPi
+		$(CC) $(CFLAGS) $? -o $@  -lwiringPi -pthread
 build/main.o : main.c
 		mkdir build
 		$(CC) $(CFLAGS) -c $? -o $@
